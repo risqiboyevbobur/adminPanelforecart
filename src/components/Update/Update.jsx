@@ -23,7 +23,7 @@ function Update() {
     e.preventDefault()
     axios
       .put(
-        `https://dbjsoninserver-production.up.railway.app/data${id}`,
+        `https://dbjsoninserver-production.up.railway.app/data/${id}`,
 
         {
           name: title,
