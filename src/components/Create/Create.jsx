@@ -20,7 +20,7 @@ export default function Create() {
       img: img,
     };
 
-    let url = "http://localhost:3000/data";
+    let url = "https://dbjsoninserver-production.up.railway.app/data";
     await createDate(url, obj)
       .then((res) => {
         if (res.status === 201) {

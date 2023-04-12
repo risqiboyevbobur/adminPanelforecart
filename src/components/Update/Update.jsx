@@ -23,7 +23,7 @@ function Update() {
     e.preventDefault()
     axios
       .put(
-        `http://localhost:3000/data/${id}`,
+        `https://dbjsoninserver-production.up.railway.app/data${id}`,
 
         {
           name: title,

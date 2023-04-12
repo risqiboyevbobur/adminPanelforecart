@@ -91,7 +91,7 @@ const See = () => {
   const [data, setData] = useState([]);
 
   const getData = () => {
-    axios.get("http://localhost:3000/data").then((res) => {
+    axios.get("https://dbjsoninserver-production.up.railway.app/data").then((res) => {
       console.log(res);
       setData(res.data);
     });
@@ -105,7 +105,7 @@ const See = () => {
     localStorage.setItem("title", title);
   };
   const deleteData = (id) => {
-    axios.delete(`http://localhost:3000/data/${id}`).then(() => {
+    axios.delete(`https://dbjsoninserver-production.up.railway.app/data/${id}`).then(() => {
       getData();
     });
   };
@@ -130,7 +130,7 @@ const See = () => {
                   className="card mb-5"
                   style={{ width: "380px", height: "450px" }}
                 >
-                  <Card.Img className="card-img" variant="top" src={item.img} />
+                  <Card.Img className="card-img mt-5" style={{width:"290px",height:"200px",margin:"auto"}} variant="top" src={item.img} />
                   <Card.Body>
                     <i className="fas fa-heart num"></i>
                     <div style={{ display: "flex" }} className="big">
