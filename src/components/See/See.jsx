@@ -96,9 +96,10 @@ const See = () => {
       setData(res.data);
     });
   };
-  const setToLOcalStorge = (id, title, img, price, reyting, sale) => {
+  const setToLOcalStorge = (id, title, img, price,location, reyting, sale) => {
     localStorage.setItem("id", id);
     localStorage.setItem("img", img);
+    localStorage.setItem("location", location);
     localStorage.setItem("sale", sale);
     localStorage.setItem("price", price);
     localStorage.setItem("reyting", reyting);
@@ -134,12 +135,15 @@ const See = () => {
                   <Card.Body>
                     <i className="fas fa-heart num"></i>
                     <div style={{ display: "flex" }} className="big">
-                      <Card.Title>{item.title}</Card.Title>
+                      <Card.Title style={{paddingLeft:"50px"}}>{item?.title}</Card.Title>
+                     
                       <Card.Title
                         style={{ marginLeft: "105px", color: "#FFA542" }}
                       >
-                        {item.price}
+                        {item?.price}
+                        
                         <br />
+                        
                         <p
                           style={{
                             fontSize: "13px",
@@ -147,10 +151,13 @@ const See = () => {
                             textAlign: "center",
                           }}
                         >
-                          {item.sale}
+                          {item?.sale}
                         </p>
+                        
                       </Card.Title>
+                      
                     </div>
+                    <Card.Title style={{paddingLeft:"50px"}}> Location: {item?.location}</Card.Title>
                     <div
                       style={{
                         display: "flex",
@@ -163,7 +170,7 @@ const See = () => {
                         style={{ color: "yellow" }}
                         className="fas fa-star start"
                       ></i>
-                      <p style={{ color: "gray" }}>{item.reyting}</p>
+                      <p style={{ color: "gray" }}>{item?.reyting}</p>
                       <Button className="to">Add to cart</Button>
                       <Link to="/update">
                         <Button
@@ -175,7 +182,8 @@ const See = () => {
                               item.img,
                               item.reyting,
                               item.sale,
-                              item.price
+                              item.price,
+                              item.location
                             )
                           }
                         >

@@ -6,17 +6,19 @@ import { Link, useNavigate } from "react-router-dom";
 function Update() {
   const [id, setId] = useState(0);
   const [title, setTitle] = useState("");
+  const [location, setLocation] = useState("");
   const [price, setPrice] = useState("");
   const [sale, setSale] = useState("");
   const [img, setImg] = useState("");
-  console.log(title, price, img, sale);
+  console.log(location,title, price, img, sale);
   const navigate = useNavigate();
   useEffect(() => {
     setId(localStorage.getItem("id"));
-    setTitle(localStorage.getItem("name"));
+    setTitle(localStorage.getItem("title"));
     setImg(localStorage.getItem("img"));
-    setPrice(localStorage.getItem("price"));
+    setLocation(localStorage.getItem("location"));
     setSale(localStorage.getItem("sale"));
+    setPrice(localStorage.getItem("price"));
   }, []);
 
   const handleUpdate = (e) => {
@@ -26,9 +28,10 @@ function Update() {
         `https://dbjsoninserver-production.up.railway.app/data/${id}`,
 
         {
-          name: title,
+          title: title,
           price: price,
           sale: sale,
+          location:location,
           img: img,
         }
       )
@@ -57,7 +60,7 @@ function Update() {
                 {/* )} */}
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Price</Form.Label>
+                <Form.Label>Sale</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter price"
@@ -70,8 +73,20 @@ function Update() {
                 <p style={{ color: "green" }}>Success</p>
                 {/* // )} */}
               </Form.Group>
+              <Form.Label>Price</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter price"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                />
+                {/* {price.length < 1 ? (
+                  <p style={{ color: "red" }}>Invalid</p>
+                ) : ( */}
+                <p style={{ color: "green" }}>Success</p>
+                {/* // )} */}
               <Form.Group className="mb-3" controlId="formBasic">
-                <Form.Label>Sale</Form.Label>
+                <Form.Label>Location</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="sale"
